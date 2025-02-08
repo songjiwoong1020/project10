@@ -19,22 +19,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  articles
+  temp,
+  articles,
+  test
 }: Readonly<{
   children: React.ReactNode;
+  temp: React.ReactNode;
   articles: React.ReactNode;
+  test: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body>
-      <div>
-        <div className="min-h-screen bg-gray-100">
+        <div>
+          <div className="min-h-screen bg-[#f9f9f9]">
             {/* 타이틀 바 */}
-            <header className="bg-blue-600 text-white p-4 text-xl font-bold">경제 뉴스 모아보기</header>
+            <header className="bg-[#90654E] text-[#4E3333] p-4 text-xl font-bold">뉴스뉴스</header>
             {/* 컨텐츠 영역 */}
-            <main className="max-w-4xl mx-auto p-4 space-y-6">
-              <section className="bg-white p-4 rounded-lg shadow">{articles}</section>
-              <section className="bg-white p-4 rounded-lg shadow">{articles}</section>
+            children
+            <main className="max-w-4xl mx-auto p-4 space-y-6 text-black">
+              <section>{temp}</section>
+              <section>{articles}</section>
+              <section>{test}</section>
             </main>
           </div>
         </div>
