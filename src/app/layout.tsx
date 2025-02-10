@@ -21,26 +21,22 @@ export default function RootLayout({
   children,
   temp,
   articles,
-  test
 }: Readonly<{
   children: React.ReactNode;
   temp: React.ReactNode;
   articles: React.ReactNode;
-  test: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body>
         <div>
           <div className="min-h-screen bg-[#f9f9f9]">
-            {/* 타이틀 바 */}
             <header className="bg-[#90654E] text-[#4E3333] p-4 text-xl font-bold">뉴스뉴스</header>
-            {/* 컨텐츠 영역 */}
-            children
             <main className="max-w-4xl mx-auto p-4 space-y-6 text-black">
+              {/* {children} */}
               <section>{temp}</section>
               <section>{articles}</section>
-              <section>{test}</section>
+              {/* {children} */}
             </main>
           </div>
         </div>
