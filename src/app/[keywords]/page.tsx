@@ -10,5 +10,5 @@ export default async function Page({
 }) {
   console.log((await params).keywords);
   const test = (await params).keywords
-  return <div>articles page: {test}</div>
+  return <div className="text-blue-500">articles page: {test}</div>
 }

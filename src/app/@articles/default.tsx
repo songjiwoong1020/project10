@@ -1,3 +1,3 @@
 export default function DefaultArticlesPage() {
-    return <div>Default Articles Page</div>;
-  }
+  return <div className="text-red-500">Default Articles Page</div>;
+}
