@@ -1,18 +1,25 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useRef } from 'react';
+import { FormEventHandler } from 'react';
 
 export default function SearchTab() {
   const router = useRouter();
-  const inputRef = useRef<HTMLInputElement>(null);
-  const onClick = () => {
-    router.push(`/?q=${inputRef.current?.value}`);
+  const onSubmit: FormEventHandler<HTMLFormElement> = e => {
+    e.preventDefault();
+    router.push(`/?q=${e.currentTarget.search.value}`);
+    e.currentTarget.search.value=''; //==> 검색 후 글을 지우는게 나은가? 아닌가?
   }
   return (
-    <>
-      <input className="border-2" ref={inputRef}/>
-      <button onClick={onClick} className="border-2">검색</button>
-    </>
+    <div className="relative pb-4">
+      <form onSubmit={onSubmit}>
+        <input
+          name="search"
+          type="search"
+          placeholder="검색..."
+          className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+      </form>
+    </div>
   )
 }
