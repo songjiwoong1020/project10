@@ -3,11 +3,18 @@
 import { useRouter } from "next/navigation";
 import { FormEventHandler } from 'react';
 
-export default function SearchTab() {
+type Props = {
+  q?: string;
+}
+
+export default function SearchTab({ q }: Props) {
   const router = useRouter();
   const onSubmit: FormEventHandler<HTMLFormElement> = e => {
+    const value = e.currentTarget.search.value;
     e.preventDefault();
-    router.push(`/?q=${e.currentTarget.search.value}`);
+    if(q !== value){
+      router.push(`/?q=${value}`);
+    }
     e.currentTarget.search.value=''; //==> 검색 후 글을 지우는게 나은가? 아닌가?
   }
   return (

@@ -9,41 +9,31 @@ type Props = {
 
 export default function Tabs({ q }: Props) {
   const [tap, setTap] = useState<string[]>([]);
-  const [foucs, setFocus] = useState<HTMLButtonElement>();
+  const [focus, setFocus] = useState<HTMLButtonElement>();
   const router = useRouter();
 
   useEffect(() => {
-    console.log(foucs)
     if(q){
       if(tap.length === 0){
         setTap([q]);
       } else {
-        setTap([...tap, q]);
+        if(!tap.includes(q)){
+          setTap([...tap, q]);
+        }
       }
     }
-    console.log(tap);
   }, [q]);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = e => {
-    if(focus){
-
-    } else {
-      setFocus(e.currentTarget)
-    }
-    // setFocus((prev) => {
-    //   prev?.classList.remove('bg-black');
-    //   e.currentTarget.classList.remove('bg-white');
-    //   prev?.classList.add('bg-white');
-    //   e.currentTarget.classList.add('bg-black');
-    //   return e.currentTarget;
-    // });
+    router.push(`/?q=${e.currentTarget.innerText}`);
   }
 
   return (
     <div className="flex pl-4">
-      {tap.map(v => 
+      {tap.map(v =>
       <button
-        className="px-6 text-gray-700 bg-white rounded-t-lg"
+        key={v}
+        className={"px-6 text-gray-700 rounded-t-lg" + (v === q ? " bg-black" : " bg-gray-300")}
         onClick={onClick}
       >
         {v}
