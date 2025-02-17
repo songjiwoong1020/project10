@@ -5,8 +5,9 @@ type Props = {
   data: any;
 }
 
-type elemnt = {
-  elements: {type: string, name: string, elements: object[]}
+type item = {
+  link: string;
+  title: string;
 }
 
 export default function Contents({ q, data }: Props) {
@@ -19,7 +20,7 @@ export default function Contents({ q, data }: Props) {
   }));
   return (
     <ul>
-      {filteredItem.map((item) => (
+      {filteredItem.map((item: item) => (
         <li key={item.link}>{item.title}</li>
       ))}
       {/* {posts} */}
