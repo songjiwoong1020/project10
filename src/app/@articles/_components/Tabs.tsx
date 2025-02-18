@@ -33,7 +33,9 @@ export default function Tabs({ q }: Props) {
       {tap.map(v =>
       <button
         key={v}
-        className={"px-6 text-gray-700 rounded-t-lg" + (v === q ? " bg-black" : " bg-gray-300")}
+        className={"px-6 text-gray-700 rounded-t-lg" + (v === q ? " bg-black" : " bg-gray-300")
+          + " hover:border-b-2 border-blue-500"
+        }
         onClick={onClick}
       >
         {v}

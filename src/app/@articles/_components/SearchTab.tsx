@@ -18,7 +18,7 @@ export default function SearchTab({ q }: Props) {
     e.currentTarget.search.value=''; //==> 검색 후 글을 지우는게 나은가? 아닌가?
   }
   return (
-    <div className="relative pb-4">
+    <div className="pb-4">
       <form onSubmit={onSubmit}>
         <input
           name="search"
