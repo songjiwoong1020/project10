@@ -25,7 +25,9 @@ export default function Tabs({ q }: Props) {
   }, [q]);
 
   const onClick: MouseEventHandler<HTMLButtonElement> = e => {
-    router.push(`/?q=${e.currentTarget.innerText}`);
+    if(e.currentTarget.innerText !== q){
+      router.push(`/?q=${e.currentTarget.innerText}`);
+    }
   }
 
   return (
@@ -33,20 +35,13 @@ export default function Tabs({ q }: Props) {
       {tap.map(v =>
       <button
         key={v}
-        className={"px-6 text-gray-700 rounded-t-lg" + (v === q ? " bg-black" : " bg-gray-300")
-          + " hover:border-b-2 border-blue-500"
+        className={"px-6 pt-1 text-gray-700 rounded-t-lg border-b-2 border-transparent" + (v === q ? " bg-black" : " bg-gray-300 hover:border-gray-700 hover:bg-gray-500")
         }
         onClick={onClick}
       >
         {v}
       </button>
       )}
-      {/* <button className="px-6 text-gray-700 border-2 border-black border-transparent bg-black rounded-t-lg">
-        뉴스
-      </button>
-      <button className="py-2 text-gray-700 border-b-2 border-transparent hover:border-blue-500">
-        경제지표
-      </button> */}
     </div>
   )
 }
