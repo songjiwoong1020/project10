@@ -29,6 +29,68 @@
       border-bottom: solid 2px;
     }
 
+    .test::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: red;
+      transition: width 0.3s;
+    }
+
+    .test:hover::after {
+      width: 100%;
+    }
+    .card::before {
+        background: black;
+      }
+    @media (max-width: 600px) {
+      .card::before {
+        background: none;
+      }
+    }
+
+    .test-btn {
+      width: 300px;
+      height: 80px;
+      background-color: green;
+      position: relative;
+    }
+    .test-btn::before {
+      content: "content";
+      background-color: blue;
+    }
+    .test-btn::after {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      content: "content";
+      background-color: red;
+      visibility: hidden;
+      transition-duration: 0.5s;
+    }
+    .test-btn:hover::after {
+      /* background-color: red; */
+      visibility: visible;
+    }
+    .test-transition{
+      background-color: gray;
+      width: 100px;
+      height: 100px;
+      transition: 0.5s;
+      animation: move 10s linear infinite;
+      transform-origin: 50% 50%;
+    }
+    /* img.infinite_rotating_logo{
+    animation: rotate_image 10s linear infinite;
+    transform-origin: 50% 50%;
+} */
+ 
+    @keyframes move{
+      100% {
+          transform: rotate(360deg);
+        }
+    }
   </style> 
 </head>
 <body>
@@ -45,6 +107,15 @@
   <div
     style="background-color: antiquewhite; box-sizing: border-box; border: 2px solid;"
   >sda</div>
+
+  <button class="test">test</button>
+  <div class="card">card</div>
+
+  <div style="margin-top:100px">
+    <button class="test-btn">11</button>
+  </div>
+
+  <div class="test-transition">ddd</div>
 
   <script>
     const button = document.querySelector('.btn');
