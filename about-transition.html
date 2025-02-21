@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Transition</title>
+  <!-- 
+  actually,
+  The transition property is required for the transition-duration property.
+  but the other properties, for example, transition-timing-function property is default ease, transition-property property is default all.
+  -->
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: rgb(208, 146, 146);
+      margin-bottom: 10px;
+    }
+    div:hover{
+      background-color: rgb(168, 88, 88);
+    }
+    .without-transition-property-property {
+      transition-duration: 1s;
+      transition-timing-function: linear;
+    }
+    .used-transition-property {
+      transition: 1s;
+    }
+    .goal {
+      margin-top: 20px;
+      position: relative;
+      transition: 0.5s;
+    }
+    .goal::after {
+      content: "";
+      width: 20px;
+      height: 20px;;
+      background-color: red;
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      opacity: 0;
+      transform: rotate(-15deg);
+      transition: 0.5s;
+    }
+    .goal:hover::after {
+      transform: translateY(-10px);
+      opacity: 1;
+    }
+    .goal:hover {
+      background-color: rgb(52, 73, 52);
+    }
+    .goal:hover.test {
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    default
+  </div>
+  <div class="without-transition-property-property">
+    without-transition-property-property
+  </div>
+  <div class="used-transition-property">
+    used-transition-property
+  </div>
+  <div class="goal">
+    goal
+  </div>
+  <div class="test">?</div>
+</body>
+<script>
+  const divs = document.getElementsByTagName("div");
+  setTimeout(()=> {
+    [...divs].forEach((div) => {
+      div.style.backgroundColor = "green";
+    });
+  }, 500);
+
+</script>
+</html>

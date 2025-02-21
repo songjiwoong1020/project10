@@ -62,12 +62,12 @@
     }
     .test-btn::after {
       position: absolute;
-      top: -20px;
+      top: -10px;
       right: -20px;
       content: "content";
       background-color: red;
       visibility: hidden;
-      transition-duration: 0.5s;
+      transition-duration: all 0.5s;
     }
     .test-btn:hover::after {
       /* background-color: red; */
@@ -111,9 +111,11 @@
   <button class="test">test</button>
   <div class="card">card</div>
 
+  <!-- !!!! -->
   <div style="margin-top:100px">
     <button class="test-btn">11</button>
   </div>
+  <!-- !!!! -->
 
   <div class="test-transition">ddd</div>
 
