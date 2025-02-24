@@ -9,7 +9,6 @@ type Props = {
 
 export default async function Articles({ searchParams }: Props) {//searchParams은 Promise인가?
   const { q } = await searchParams;
-  // const data = await fetch('https://www.hankyung.com/feed/all-news', {headers:{'Content-Type': 'xml'}})
   const data = await fetch('https://www.hankyung.com/feed/all-news');
   const xmlData = await data.text();
   const jsonData = convert.xml2js(xmlData, {compact: true});
