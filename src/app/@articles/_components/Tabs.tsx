@@ -57,7 +57,6 @@ export default function Tabs({ q }: Props) {
           className={"peer overflow-hidden px-6 pt-1 text-gray-700 rounded-t-lg border-b-2 border-transparent transition-colors" + (v === q ? " bg-black" : " bg-gray-300 hover:border-gray-700 hover:bg-gray-500")
           }//TODO!!!!!!!!!!!
           //max-width 작업
-          //tap의 쌓임 맥락(stacking context)이 상단 타이틀바보다 높음
         >
           {v}
         </button>
