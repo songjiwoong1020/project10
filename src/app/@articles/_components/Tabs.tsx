@@ -35,9 +35,6 @@ export default function Tabs({ q }: Props) {
       if(tap.at(-1) === target){
         router.push(`/?q=${tap.at(-2)}`);
       } else {
-        console.log(tap.findIndex(v => v === target));
-        console.log(tap[tap.findIndex(v => v === target)+1]);
-        
         router.push(`/?q=${tap[tap.findIndex(v => v === target)+1]}`);
       }
     } else if (c.length < 1) {
@@ -54,7 +51,7 @@ export default function Tabs({ q }: Props) {
       <div className="relative" key={v}>
         <button
           onClick={onClick}
-          className={"peer overflow-hidden px-6 pt-1 text-gray-700 rounded-t-lg border-b-2 border-transparent transition-colors" + (v === q ? " bg-black" : " bg-gray-300 hover:border-gray-700 hover:bg-gray-500")
+          className={"peer max-w-20 px-6 pt-1 text-gray-700 rounded-t-lg border-b-2 border-transparent transition-colors truncate" + (v === q ? " bg-black" : " bg-gray-300 hover:border-gray-700 hover:bg-gray-500")
           }//TODO!!!!!!!!!!!
           //max-width 작업
         >
