@@ -29,8 +29,8 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="min-h-screen flex flex-col bg-[#f9f9f9]">
-          <header className="fixed z-50 top-0 w-full bg-[#90654E] text-[#4E3333] p-4 text-xl font-[GangwonEduPowerExtraBoldA]">
-            <div className="max-w-4xl flex items-center mx-auto my-0 bg-[#90654E]">
+          <header className="p-0 fixed z-50 top-0 w-full bg-[#998072] text-[#4E3333] p-4 text-xl font-[GangwonEduPowerExtraBoldA] border-b-4">
+            <div className="max-w-4xl mx-auto my-0 bg-[#90654E] py-5 px-5">
               뉴스뉴스
             </div>
           </header>
